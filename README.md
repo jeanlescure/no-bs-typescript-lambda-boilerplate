@@ -14,9 +14,9 @@ In other words, if you find a bug or want a new feature, please help us by becom
 
 :rotating_light: **Before continuing:**
 
-- If you're creating an API using Express.js consider looking at my [No BS Typescript Server Boilerplate]()
-- If you're creating a Javascript/Typescript module consider looking at my [No BS Typescript Boilerplate]()
-- If you're creating a React.js app consider looking at my [No BS React Boilerplate]()
+- If you're creating an API using Express.js consider looking at my [No BS Typescript Server Boilerplate](https://github.com/jeanlescure/no-bs-typescript-server-boilerplate)
+- If you're creating a Javascript/Typescript module consider looking at my [No BS Typescript Boilerplate](https://github.com/jeanlescure/no-bs-typescript-boilerplate)
+- If you're creating a React.js app consider looking at my [No BS React Boilerplate](https://github.com/jeanlescure/no-bs-react-boilerplate)
 
 ## Like this project? :heart:
 
