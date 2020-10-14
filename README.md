@@ -1,11 +1,12 @@
 ![Typescript](https://assets.jeanlescure.io/f8mvuN.svg)
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 ![plus](https://assets.jeanlescure.io/gxaoy.svg)
 ![AWS Lambda](https://assets.jeanlescure.io/xO8TmJzK.svg)
 
 # No BS Typescript Lambda Boilerplate
+
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 This boilerplate focuses on keeping configuration to a minimum yet supporting all latest Typescript
 features for making it as easy and worry-free as possible to get started building a performance
