@@ -16,19 +16,19 @@ This project is open to updates by its users, I ensure that PRs are relevant to 
 In other words, if you find a bug or want a new feature, please help us by becoming one of the
 [contributors](#contributors-) ✌️ ! See the [contributing section](#contributing).
 
-:rotating_light: **Before continuing:**
+🚨 **Before continuing:**
 
 - If you're creating an API using Express.js consider looking at my [No BS Typescript Server Boilerplate](https://github.com/jeanlescure/no-bs-typescript-server-boilerplate)
 - If you're creating a Javascript/Typescript module consider looking at my [No BS Typescript Boilerplate](https://github.com/jeanlescure/no-bs-typescript-boilerplate)
 - If you're creating a React.js app consider looking at my [No BS React Boilerplate](https://github.com/jeanlescure/no-bs-react-boilerplate)
 
-## Like this project? :heart:
+## Like this project? ❤️
 
 Please consider:
 
-- [Buying me a coffee](https://www.buymeacoffee.com/jeanlescure) :coffee:
-- Supporting me on [Patreon](https://www.patreon.com/jeanlescure) :trophy:
-- Starring this repo on [Github](https://github.com/jeanlescure/string-crypto) :star2:
+- [Buying me a coffee](https://www.buymeacoffee.com/jeanlescure) ☕
+- Supporting me on [Patreon](https://www.patreon.com/jeanlescure) 🏆
+- Starring this repo on [Github](https://github.com/jeanlescure/string-crypto) 🌟
 
 ## How to get started using this boilerplate
 
