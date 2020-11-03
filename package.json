@@ -1,18 +1,17 @@
 {
   "name": "no-bs-typescript-lambda-boilerplate",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "Simple Typescript boilerplate for writing AWS Lambdas",
   "main": "dist/index.js",
   "author": "Jean M. Lescure",
   "license": "Apache-2.0",
   "scripts": {
     "packdeps": "node dependencies.js && cd dist && yarn",
-    "rm:dist": "rm dist/index* || true",
-    "build": "yarn rm:dist && rollup -c && yarn packdeps && cd dist && zip -r function.zip ./*",
-    "build:dev": "yarn rm:dist && NODE_ENV=development rollup -c && yarn packdeps",
+    "rm:dist": "rm -rf dist/*",
+    "build": "yarn rm:dist && NODE_ENV=production rollup -c && yarn packdeps && cd dist && zip -r function.zip ./*",
+    "build:dev": "yarn rm:dist && rollup -c && yarn packdeps",
     "run:lambda": "command -v docker && yarn build:dev && cd dist && docker run --rm -e DOCKER_LAMBDA_STAY_OPEN=1 -p 9001:9001 -v \"$(pwd)\":/var/task:ro,delegated lambci/lambda:nodejs12.x index.handler",
-    "dev": "nodemon -w ./src -e '' -s SIGINT -x yarn run:lambda",
-    "deploy": "aws lambda update-function-code --function-name myNoBSFunction --zip-file fileb://dist/function.zip"
+    "dev": "nodemon -w ./src -e '' -s SIGINT -x yarn run:lambda"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^15.0.0",

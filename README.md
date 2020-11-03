@@ -87,6 +87,9 @@ aws lambda invoke \
   output.json
 ```
 
+**Note:** to get payloads for different AWS Lambda triggers, simply upload this lambda with a
+`console.log(even);`, then just copy the output from the resulting CloudWatch logs.
+
 Finally, you can also test your function using an HTTP request with Postman, Insomnia, or even Curl, like so:
 
 ```
@@ -102,30 +105,58 @@ yarn build
 This command will build the `dist/index.js` bundle of your code (uglified and tree-shaken so it
 loads/runs faster), it installs the node modules specified under the `"dependencies"` section
 in the `package.json` (no `"devDependencies"`), and finally packages it all into a `function.zip`
-file that you can upload to your aws account using the following commands:
+file that you can upload to your aws account.
+
+**Deploy (create) function in AWS**
 
 ```sh
+# ================
+# Config variables
+# ================
+
+STAGE=d # d - dev | t - test | s - staging | u - uat | p - production
+LAMBDA_NAME=$STAGE-$(cat package.json | grep "\"name\": \"[^\"]*\"," | sed 's/.*"name": "\([^"]*\)".*/\1/')
+
+# ===============
 # Create function
-LAMBDA_NAME=myNoBSLambda
+# ===============
+
+yarn build
 
 LAMBDA_ROLE_ARN=$(aws iam create-role \
   --role-name $LAMBDA_NAME \
   --assume-role-policy-document '{"Version": "2012-10-17","Statement": [{ "Effect": "Allow", "Principal": {"Service": "lambda.amazonaws.com"}, "Action": "sts:AssumeRole"}]}' \
   --query "Role.Arn" --output=text) \
 && sleep 15 \
+&& echo "Attaching execution policy to role with ARN: '$LAMBDA_ROLE_ARN'..." \
 && aws iam attach-role-policy \
   --role-name $LAMBDA_NAME \
   --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole \
 && sleep 15 \
+&& echo "Creating lambda '$LAMBDA_NAME' with role (ARN): '$LAMBDA_ROLE_ARN'..." \
 && aws lambda create-function \
   --function-name $LAMBDA_NAME \
   --handler index.handler \
   --runtime nodejs12.x \
   --role $LAMBDA_ROLE_ARN \
   --zip-file fileb://dist/function.zip
+```
 
+**Deploy (update) function in AWS**
+
+```sh
+# ================
+# Config variables
+# ================
+
+STAGE=d # d - dev | t - test | s - staging | u - uat | p - production
+LAMBDA_NAME=$STAGE-$(cat package.json | grep "\"name\": \"[^\"]*\"," | sed 's/.*"name": "\([^"]*\)".*/\1/')
+
+# ===============
 # Update function
-aws lambda update-function-code --function-name $LAMBDA_NAME --zip-file fileb://dist/function.zip
+# ===============
+
+yarn build && aws lambda update-function-code --function-name $LAMBDA_NAME --zip-file fileb://dist/function.zip
 ```
 
 ## Contributing
