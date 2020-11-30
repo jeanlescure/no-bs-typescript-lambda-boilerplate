@@ -1,6 +1,6 @@
 {
   "name": "no-bs-typescript-lambda-boilerplate",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Simple Typescript boilerplate for writing AWS Lambdas",
   "main": "dist/index.js",
   "author": "Jean M. Lescure",
